@@ -132,8 +132,61 @@ For each cellChecked in range("A1:A10")
     MsgBox cellChecked.Value
 Next cellChecked
 Данный код перебирает все элементы в заданном диапазоне и выводит их значения
+<h2>IF</h2>
+1.Sub lessonSub()
+    If Range("B3") = 3 Then  - Если в ячейке B3 значение 3 тогда выводим на экран "Три"
+          MsgBox "Три"
+    End If
+End Sub
+2. С циклом
+Sub lessonSub()
+  Dim cellChecked As Range
 
+  For Each cellChecked In Range("B3:B7")
+      If cellChecked = 5 Then
+          MsgBox "Пять"
+      Else If cellChecked = 4 Then
+          MsgBox "Четыре"
+      Else:
+          MsgBox "?"
+      Next cellChecked
+End Sub
+<h2>Цикл Do Loop (While/Untill</h2>
+1. Sub learningDoLoop_While_1()
+Dim checker As Strang
+checker = "ОК"
+Do While checker = "OK"
+    checker = InputBox("Пишите 'ОК' для повторения цикла!")  - пока checker = OK, то вводите значение, если другое, то цикл закончится
+Loop
+End Sub
 
+2. Sub learningDoLoop_While_2()
+Dim checker As Strang
+checker = "ОК"
+Do 
+    checker = InputBox("Пишите 'ОК' для повторения цикла!")  - тоже самое, но выполнится хотя бы 1 рааз
+Loop While checker = "OK"
+End Sub
 
+3.Sub learningDoLoop_Until_3()
+Dim checker As Strang
+
+Do Until checker = "ОК"
+    checker = InputBox("Не пишите 'ОК' для повторения цикла!")  - делай до тех пор пока checker не будет равен OK
+Loop
+End Sub
+<h2>Поиск последней используемой строки и столбца</h2>
+1. Поиск последней строки
+Sub identifyingLastRow()
+Dim lastRow As Long
+lastRow = Worksheets(1).Cells(Rows.Count, 1).End(xlUp).Row - считает все кол-во строк и ссылается на последнюю используемую
+MsgBox lastRow
+End Sub
+
+2.Sub identifyingLastColumn()
+Dim lastColumn As Long
+lastColumn = Worksheets(1).Cells(11, Columns.Count).End(xlToLeft).Column - считает все кол-во столбцов и ссылается на последний используемый
+MsgBox lastColumn
+End Sub
 
 
